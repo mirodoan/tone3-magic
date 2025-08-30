@@ -1,42 +1,46 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Global background gradient for the whole app */
+body {
+  background: linear-gradient(135deg, #E6F4F1 0%, #F7F6F2 100%);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Accent: red primary color for highlights, buttons, progress bar, etc. */
+.accent,
+.section-title,
+.btn-primary,
+.progress-bar,
+.tab-active {
+  color: #D7263D;
+  background: #D7263D;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Card backgrounds: very light pastel blue for harmony */
+.bg-f7fcfa {
+  background-color: #F7FCFA;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Main text: dark gray */
+.text-main {
+  color: #222;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
+/* Secondary text: gray */
+.text-sub {
   color: #888;
+}
+
+/* Section titles */
+.section-title {
+  color: #D7263D;
+}
+
+/* Primary button styling */
+.btn-primary {
+  background: #D7263D;
+  color: #fff;
+  box-shadow: 0 2px 8px #d7263d30;
+}
+
+/* Progress bar */
+.progress-bar {
+  background: #D7263D;
 }
