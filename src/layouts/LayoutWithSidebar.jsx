@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import LogoCircle from "../components/LogoCircle";
 import StickySidebar from "../components/StickySidebar";
-import DashboardPage from "../pages/DashboardPage";
-import TheoryPage from "../pages/TheoryPage";
-import PracticePage from "../pages/PracticePage";
-import VocabPage from "../pages/VocabPage";
 
 // Các tab và icon
 const SIDEBAR_TABS = [
   {
     key: "home",
     label: "Trang chủ",
+    route: "/dashboard",
     icon: (
       <svg width="28" height="28" fill="none">
         <path d="M6 13L14 6l8 7V24a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V13z" stroke="currentColor" strokeWidth="2"/>
@@ -21,6 +19,7 @@ const SIDEBAR_TABS = [
   {
     key: "theory",
     label: "Lý thuyết",
+    route: "/theory",
     icon: (
       <svg width="28" height="28" fill="none">
         <rect x="6" y="8" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="2"/>
@@ -31,6 +30,7 @@ const SIDEBAR_TABS = [
   {
     key: "practice",
     label: "Luyện tập",
+    route: "/practice",
     icon: (
       <svg width="28" height="28" fill="none">
         <path d="M14 9v7l5 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -41,6 +41,7 @@ const SIDEBAR_TABS = [
   {
     key: "vocab",
     label: "Từ khó",
+    route: "/vocab",
     icon: (
       <svg width="28" height="28" fill="none">
         <path d="M14 21l-7-6V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7l-7 6z" stroke="currentColor" strokeWidth="2"/>
@@ -50,21 +51,28 @@ const SIDEBAR_TABS = [
   },
 ];
 
-export default function LayoutWithSidebar() {
-  const [activeTab, setActiveTab] = useState("home");
-  const [nickname, setNickname] = useState("");
+export default function LayoutWithSidebar({ children }) {
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const nick = localStorage.getItem("nickname");
-    if (nick) setNickname(nick);
-  }, []);
+  // Xác định tab active dựa trên route hiện tại
+  const getActiveTab = () => {
+    const path = location.pathname;
+    if (path === "/dashboard") return "home";
+    if (path === "/theory") return "theory";
+    if (path === "/practice") return "practice";
+    if (path === "/vocab") return "vocab";
+    return "home";
+  };
 
-  // Chọn nội dung page theo tab
-  let content;
-  if (activeTab === "home") content = <DashboardPage nickname={nickname} />;
-  else if (activeTab === "theory") content = <TheoryPage />;
-  else if (activeTab === "practice") content = <PracticePage />;
-  else if (activeTab === "vocab") content = <VocabPage />;
+  const activeTab = getActiveTab();
+
+  const handleTabChange = (tabKey) => {
+    const tab = SIDEBAR_TABS.find(t => t.key === tabKey);
+    if (tab) {
+      navigate(tab.route);
+    }
+  };
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-[#F55656] to-[#FFB6B6] flex">
@@ -82,7 +90,7 @@ export default function LayoutWithSidebar() {
           {SIDEBAR_TABS.map(tab => (
             <button
               key={tab.key}
-              onClick={() => setActiveTab(tab.key)}
+              onClick={() => handleTabChange(tab.key)}
               className={`
                 flex items-center gap-4 py-4 px-5 rounded-2xl transition-all
                 text-lg font-semibold
@@ -108,15 +116,15 @@ export default function LayoutWithSidebar() {
         </nav>
       </aside>
 
-      {/* Main content thay đổi theo tab */}
+      {/* Main content thay đổi theo route */}
       <main className="flex-1 flex justify-center items-center sm:pl-64 px-2 py-2">
-        {content}
+        {children}
       </main>
 
       {/* Sidebar cho mobile */}
       <div className="sm:hidden fixed bottom-0 left-0 right-0 z-50 px-2 pb-2">
         <div className="bg-white rounded-t-2xl shadow-xl border border-red-100">
-          <StickySidebar activeTab={activeTab} onTabChange={setActiveTab} />
+          <StickySidebar activeTab={activeTab} onTabChange={handleTabChange} />
         </div>
       </div>
     </div>
