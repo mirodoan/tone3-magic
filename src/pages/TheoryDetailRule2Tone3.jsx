@@ -1,50 +1,34 @@
+import BackButton from "../components/BackButton";
 import TheoryExample from "../components/TheoryExample";
+import TheoryCards from "../data/TheoryCards";
 
-export default function TheoryDetailRule2Tone3({ onBack }) {
-  // Nội dung chi tiết cho Quy tắc biến âm khi 2 dấu 3 đứng cạnh nhau
-  const detail = {
-    heading: "Quy tắc biến âm khi hai dấu 3 đứng cạnh nhau",
-    summary:
-      "Khi hai âm tiết mang thanh 3 đứng cạnh nhau, âm tiết đầu tiên sẽ biến thành thanh 2. Đây là quy tắc biến âm phổ biến nhất và quan trọng nhất của thanh 3.",
-    examples: [
-      {
-        label: "Ví dụ minh họa: 你好 (nǐ hǎo)",
-        origin: "你好 (nǐ3 hǎo3)",
-        changed: "你好 (ní2 hǎo3)",
-        meaning: "Nghĩa: Xin chào",
-      },
-      // Có thể thêm ví dụ khác nếu muốn
-    ],
-    audioUrl: "/audio-rule2tone3.mp3",
-    chartLabel: "Biểu đồ sóng âm",
-  };
+export default function TheoryDetailRule2Tone3() {
+  // Lấy dữ liệu từ TheoryCards.js
+  const cardData = TheoryCards.find(card => card.slug === "two-tone3");
+  const detail = cardData?.detail;
+
+  if (!detail) {
+    return <div>Không tìm thấy nội dung</div>;
+  }
 
   return (
-    <div className="w-full min-h-screen bg-[#f4fcf7] p-6 sm:p-10">
-      <button
-        onClick={onBack}
-        className="mb-6 px-4 py-2 rounded bg-blue-100 text-blue-700 font-semibold"
-      >
-        ← Quay lại
-      </button>
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-bold text-red-500 mb-2">{detail.heading}</h1>
-        <p className="text-lg text-gray-700 mb-6">{detail.summary}</p>
-        <div className="bg-white border border-[#bde7db] rounded-xl p-6 shadow-sm">
+    <div className="w-full min-h-screen p-4 sm:p-6 lg:p-10">
+      <BackButton />
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">{detail.heading}</h1>
+        <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 leading-relaxed">{detail.summary}</p>
+        <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg">
           {detail.examples.map((ex, i) => (
             <TheoryExample key={i} example={ex} />
           ))}
-          <div className="flex gap-4 items-center mt-4">
-            <button className="bg-[#228be6] text-white px-6 py-3 rounded-full flex items-center gap-2 text-lg font-semibold shadow hover:bg-[#1a6fc1]">
-              <svg width="28" height="28" fill="none">
-                <circle cx="14" cy="14" r="13" stroke="white" strokeWidth="2" />
-                <polygon points="11,10 20,14 11,18" fill="white" />
+          <div className="mt-6 sm:mt-8">
+            <button className="w-full sm:w-auto bg-[#228be6] hover:bg-[#1a6fc1] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl flex items-center justify-center gap-3 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200">
+              <svg width="24" height="24" className="sm:w-7 sm:h-7" fill="none">
+                <circle cx="12" cy="12" r="11" stroke="white" strokeWidth="2" />
+                <polygon points="9,8 16,12 9,16" fill="white" />
               </svg>
-              Nghe mẫu
+              <span>Nghe mẫu</span>
             </button>
-            <div className="flex-1 bg-[#bde7db] rounded-full h-12 flex items-center justify-center text-[#357c87] font-medium text-lg">
-              {detail.chartLabel}
-            </div>
           </div>
         </div>
       </div>

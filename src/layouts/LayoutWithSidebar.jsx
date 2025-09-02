@@ -59,9 +59,9 @@ export default function LayoutWithSidebar({ children }) {
   const getActiveTab = () => {
     const path = location.pathname;
     if (path === "/dashboard") return "home";
-    if (path === "/theory") return "theory";
-    if (path === "/practice") return "practice";
-    if (path === "/vocab") return "vocab";
+    if (path.startsWith("/theory")) return "theory";
+    if (path.startsWith("/practice")) return "practice";
+    if (path.startsWith("/vocab")) return "vocab";
     return "home";
   };
 

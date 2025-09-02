@@ -10,15 +10,15 @@ export default function TheoryDetailRoute() {
   const { id } = useParams();
 
   switch (id) {
-    case "1":
+    case "all-tones":
       return <TheoryDetailAllTones />;
-    case "2":
+    case "two-tone3":
       return <TheoryDetailRule2Tone3 />;
-    case "3":
+    case "three-tone3":
       return <TheoryDetailRule3Tone3 />;
-    case "4":
+    case "four-tone3":
       return <TheoryDetailRule4Tone3 />;
-    case "5":
+    case "tone3-with-others":
       return <TheoryDetailRuleOthersTone3 />;
     default:
       return <div>Không tìm thấy nội dung phù hợp</div>;
