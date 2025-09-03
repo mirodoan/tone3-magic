@@ -17,28 +17,30 @@ const TheoryCards = [
           origin: "妈 (mā1)",
           changed: "妈 (mā)",
           meaning: "Nghĩa: Mẹ",
+          audioUrl: "/audio-all-tones.mp3",
         },
         {
           label: "Ví dụ minh họa: 麻 (má) - Thanh 2", 
           origin: "麻 (má2)",
           changed: "麻 (má)",
           meaning: "Nghĩa: Ma",
+          audioUrl: "/audio-ma-tone2.mp3",
         },
         {
           label: "Ví dụ minh họa: 马 (mǎ) - Thanh 3",
           origin: "马 (mǎ3)",
           changed: "马 (mǎ)",
           meaning: "Nghĩa: Ngựa",
+          audioUrl: "/audio-ma-tone3.mp3",
         },
         {
           label: "Ví dụ minh họa: 骂 (mà) - Thanh 4",
           origin: "骂 (mà4)",
           changed: "骂 (mà)",
           meaning: "Nghĩa: Mắng",
+          audioUrl: "/audio-ma-tone4.mp3",
         },
       ],
-      audioUrl: "/audio-all-tones.mp3",
-      chartLabel: "Biểu đồ bốn thanh điệu",
     }
   },
   {
@@ -52,18 +54,16 @@ const TheoryCards = [
     comments: "160",
     detail: {
       heading: "Quy tắc biến âm khi hai dấu 3 đứng cạnh nhau",
-      summary: "Khi hai âm tiết mang thanh 3 đứng cạnh nhau, âm tiết đầu tiên sẽ biến thành thanh 2. Đây là quy tắc biến âm phổ biến nhất và quan trọng nhất của thanh 3.",
+      summary: "Khi hai từ mang thanh 3 đứng cạnh nhau thì từ đầu tiên sẽ có trường độ tương tự dấu 2, nhưng có trường độ từ 1 lên 4 thay vì 3 đến 5.",
       examples: [
         {
-          label: "Ví dụ minh họa: 你好 (nǐ hǎo)",
-          origin: "你好 (nǐ3 hǎo3)",
-          changed: "你好 (ní2 hǎo3)",
-          meaning: "Nghĩa: Xin chào",
-          illustrationImage: "https://i.imgur.com/example1.png" // Placeholder - thay bằng ảnh thật
+          label: "Ví dụ 1",
+          origin: "你好 - nǐ hǎo",
+          changed: "你好 - ní(1-4) hǎo(3)",
+          meaning: "Xin chào",
+          audioUrl: "/audio-nihao.mp3",
         }
       ],
-      audioUrl: "/audio-rule2tone3.mp3",
-      chartLabel: "Biểu đồ sóng âm",
     }
   },
   {
@@ -91,10 +91,9 @@ const TheoryCards = [
           origin: "老老老 (lǎo3 lǎo3 lǎo3)",
           changed: "老老老 (láo2 láo2 lǎo3)",
           meaning: "Nghĩa: Già già già",
+          audioUrl: "/audio-laolaolao.mp3",
         }
       ],
-      audioUrl: "/audio-rule3tone3.mp3",
-      chartLabel: "Biểu đồ ba thanh 3",
     }
   },
   {
@@ -115,16 +114,16 @@ const TheoryCards = [
           origin: "老老老老 (lǎo3 lǎo3 lǎo3 lǎo3)",
           changed: "老老老老 (láo2 láo2 láo2 lǎo3)",
           meaning: "Nghĩa: Già già già già",
+          audioUrl: "/audio-laolaolaolaolao.mp3",
         },
         {
           label: "Ví dụ minh họa: 好好好好 (hǎo hǎo hǎo hǎo)",
           origin: "好好好好 (hǎo3 hǎo3 hǎo3 hǎo3)",
           changed: "好好好好 (háo2 háo2 háo2 hǎo3)",
           meaning: "Nghĩa: Tốt tốt tốt tốt",
+          audioUrl: "/audio-haohaohaohaohao.mp3",
         }
       ],
-      audioUrl: "/audio-rule4tone3.mp3",
-      chartLabel: "Biểu đồ bốn thanh 3",
     }
   },
   {
@@ -145,22 +144,60 @@ const TheoryCards = [
           origin: "老师 (lǎo3 shī1)",
           changed: "老师 (lǎo shī)",
           meaning: "Nghĩa: Giáo viên",
+          audioUrl: "/audio-laoshi.mp3",
         },
         {
           label: "Ví dụ minh họa: 老婆 (lǎo pó) - Thanh 3 + Thanh 2",
           origin: "老婆 (lǎo3 pó2)",
           changed: "老婆 (lǎo pó)",
           meaning: "Nghĩa: Vợ",
+          audioUrl: "/audio-laopo.mp3",
         },
         {
           label: "Ví dụ minh họa: 老大 (lǎo dà) - Thanh 3 + Thanh 4",
           origin: "老大 (lǎo3 dà4)",
           changed: "老大 (lǎo dà)",
           meaning: "Nghĩa: Anh cả",
+          audioUrl: "/audio-laoda.mp3",
         }
       ],
-      audioUrl: "/audio-rule-others-tone3.mp3",
-      chartLabel: "Biểu đồ thanh 3 với thanh khác",
+    }
+  },
+    {
+    id: 5,
+    slug: "tone3-in-general",
+    title: "Quy tắc biến âm khi dấu 3 kết hợp với các dấu khác",
+    image: "https://files.fullstack.edu.vn/f8-prod/courses/7.png",
+    description: "Quy tắc biến âm khi dấu 3 kết hợp với các dấu khác",
+    views: "282",
+    likes: "5.692",
+    comments: "183",
+    detail: {
+      heading: "Quy tắc biến âm khi dấu 3 kết hợp với các dấu khác",
+      summary: "Khi thanh 3 đứng trước các thanh khác (thanh 1, 2, 4), thanh 3 sẽ giữ nguyên hoặc có sự biến đổi nhẹ tùy thuộc vào ngữ cảnh và tốc độ nói.",
+      examples: [
+        {
+          label: "Ví dụ minh họa: 老师 (lǎo shī) - Thanh 3 + Thanh 1",
+          origin: "老师 (lǎo3 shī1)",
+          changed: "老师 (lǎo shī)",
+          meaning: "Nghĩa: Giáo viên",
+          audioUrl: "/audio-laoshi.mp3",
+        },
+        {
+          label: "Ví dụ minh họa: 老婆 (lǎo pó) - Thanh 3 + Thanh 2",
+          origin: "老婆 (lǎo3 pó2)",
+          changed: "老婆 (lǎo pó)",
+          meaning: "Nghĩa: Vợ",
+          audioUrl: "/audio-laopo.mp3",
+        },
+        {
+          label: "Ví dụ minh họa: 老大 (lǎo dà) - Thanh 3 + Thanh 4",
+          origin: "老大 (lǎo3 dà4)",
+          changed: "老大 (lǎo dà)",
+          meaning: "Nghĩa: Anh cả",
+          audioUrl: "/audio-laoda.mp3",
+        }
+      ],
     }
   }
 ];

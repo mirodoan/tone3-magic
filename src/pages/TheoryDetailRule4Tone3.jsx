@@ -21,15 +21,6 @@ export default function TheoryDetailRule4Tone3() {
           {detail.examples.map((ex, i) => (
             <TheoryExample key={i} example={ex} />
           ))}
-          <div className="mt-6 sm:mt-8">
-            <button className="w-full sm:w-auto bg-[#228be6] hover:bg-[#1a6fc1] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl flex items-center justify-center gap-3 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200">
-              <svg width="24" height="24" className="sm:w-7 sm:h-7" fill="none">
-                <circle cx="12" cy="12" r="11" stroke="white" strokeWidth="2" />
-                <polygon points="9,8 16,12 9,16" fill="white" />
-              </svg>
-              <span>Nghe mẫu</span>
-            </button>
-          </div>
         </div>
       </div>
     </div>
