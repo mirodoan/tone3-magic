@@ -13,13 +13,21 @@ export default function LogoCircle({ text = "三" }) {
         background: "linear-gradient(135deg, #F55656 0%, #FFB6B6 100%)",
       }}
     >
-      <span className="
-        text-white font-bold drop-shadow 
-        text-4xl
-        sm:text-5xl
-        md:text-6xl
-        transition-all
-      ">
+      <span 
+        className="
+          text-white font-bold drop-shadow 
+          text-4xl
+          sm:text-5xl
+          md:text-6xl
+          transition-all
+          leading-none
+          flex items-center justify-center
+        "
+        style={{
+          fontFamily: "'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif",
+          transform: "translateY(-1px)"
+        }}
+      >
         {text}
       </span>
     </div>

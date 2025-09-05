@@ -64,7 +64,7 @@ export default function HomePage() {
             <p className="text-white text-lg sm:text-xl mb-8 font-hanzi text-center">
               Dấu Ba Thần Kỳ
             </p>
-            <p className="text-white mb-12 text-center text-lg sm:text-lg font-pinyin font-bold">
+            <p className="text-white mb-12 text-center text-sm sm:text-base lg:text-lg font-pinyin font-bold px-2 whitespace-nowrap">
               Làm chủ biến âm dấu 3 - Tự tin phát âm Tiếng Trung
             </p>
             <InputNickname

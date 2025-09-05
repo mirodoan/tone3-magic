@@ -1,5 +1,4 @@
 import BackButton from "../components/BackButton";
-import TheoryExample from "../components/TheoryExample";
 import VocabTable from "../components/VocabTable";
 import TheoryCards from "../data/TheoryCards";
 import TwoTone3Words from "../data/TwoTone3Words";
@@ -37,13 +36,6 @@ export default function TheoryDetailRule2Tone3() {
           </div>
         </div>
         
-        {/* Container cho Examples */}
-        <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg mb-6 sm:mb-8">
-          {detail.examples.map((ex, i) => (
-            <TheoryExample key={i} example={ex} />
-          ))}
-        </div>
-
         {/* Bảng từ vựng liên quan */}
         <VocabTable vocabs={TwoTone3Words} />
       </div>
