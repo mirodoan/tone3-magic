@@ -20,8 +20,6 @@ export default function TheoryPage() {
                 image={card.image}
                 description={card.description}
                 views={card.views}
-                likes={card.likes}
-                comments={card.comments}
               />
             </div>
           ))}
