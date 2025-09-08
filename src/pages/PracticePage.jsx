@@ -1,34 +1,50 @@
+import { useNavigate } from "react-router-dom";
+
 export default function PracticePage() {
+  const navigate = useNavigate();
+
   const practiceTypes = [
     { 
       id: 1, 
       title: "Luyện phát âm", 
       description: "Thực hành phát âm các thanh điệu",
       icon: "🎤",
-      difficulty: "Dễ"
+      difficulty: "Dễ",
+      route: "/practice/pronunciation"
     },
     { 
       id: 2, 
       title: "Nhận biết thanh điệu", 
       description: "Nghe và phân biệt các thanh điệu",
       icon: "👂",
-      difficulty: "Trung bình"
+      difficulty: "Trung bình",
+      route: "/practice/tone-recognition"
     },
     { 
       id: 3, 
       title: "Đọc từ vựng", 
       description: "Đọc và phát âm đúng từ vựng",
       icon: "📚",
-      difficulty: "Khó"
+      difficulty: "Khó",
+      route: "/practice/vocabulary" // TODO: Tạo page này
     },
     { 
       id: 4, 
       title: "Luyện câu", 
-      description: "Thực hành với câu hoàn chình",
+      description: "Thực hành với câu hoàn chỉnh",
       icon: "💬",
-      difficulty: "Khó"
+      difficulty: "Khó",
+      route: "/practice/sentences" // TODO: Tạo page này
     }
   ];
+
+  const handlePracticeClick = (route) => {
+    if (route === "/practice/vocabulary" || route === "/practice/sentences") {
+      alert("Tính năng đang phát triển!");
+      return;
+    }
+    navigate(route);
+  };
 
   return (
     <div className="p-6 space-y-6">
@@ -58,7 +74,10 @@ export default function PracticePage() {
             
             <p className="text-gray-600 text-sm mb-6">{type.description}</p>
             
-            <button className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
+            <button 
+              onClick={() => handlePracticeClick(type.route)}
+              className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors"
+            >
               Bắt đầu luyện tập
             </button>
           </div>
