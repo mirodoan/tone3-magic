@@ -13,29 +13,29 @@ export default function TheoryDetailAllTones() {
   const toneImages = [
     {
       src: "/images/tone1.png",
-      title: "Thanh điệu 1 - Thanh bằng",
-      description: "Âm thanh cao và đều, giữ nguyên độ cao từ đầu đến cuối",
+      title: "Thanh 1",
+      description: "Âm thanh cao và đều, giữ nguyên độ cao (5) từ đầu đến cuối  một cách ổn định.",
       example: "mā (妈) - mẹ",
       color: "border-blue-400 ring-blue-200"
     },
     {
       src: "/images/tone2.png", 
-      title: "Thanh điệu 2 - Thanh sắc",
-      description: "Âm thanh đi từ thấp lên cao, như khi hỏi nghi vấn",
+      title: "Thanh 2",
+      description: "Âm thanh đi từ trung bình (3) lên cao (5).",
       example: "má (麻) - vừng",
       color: "border-green-400 ring-green-200"
     },
     {
       src: "/images/tone3.png",
-      title: "Thanh điệu 3 - Thanh hỏi", 
-      description: "Âm thanh đi xuống rồi lên lại, tạo thành hình chữ V",
+      title: "Thanh 3", 
+      description: "Âm thanh đi xuống rồi lên lại, bắt đầu từ cao độ (2) xuống thấp (1) rồi lên cao (4).",
       example: "mǎ (马) - ngựa",
       color: "border-red-400 ring-red-200"
     },
     {
       src: "/images/tone4.png",
-      title: "Thanh điệu 4 - Thanh ngã",
-      description: "Âm thanh đi từ cao xuống thấp, mạnh mẽ và quyết đoán",
+      title: "Thanh 4",
+      description: "Âm thanh đi từ cao (5) xuống thấp (1), mạnh mẽ và dứt khoát, ngắt hơi",
       example: "mà (骂) - mắng",
       color: "border-purple-400 ring-purple-200"
     }
@@ -101,9 +101,8 @@ export default function TheoryDetailAllTones() {
               💡 Ghi nhớ quan trọng
             </h3>
             <div className="text-gray-700 text-sm sm:text-base leading-relaxed space-y-3">
-              <p>• <strong>Thanh điệu 3</strong> là thanh điệu khó nhất trong tiếng Trung vì có sự biến đổi phức tạp</p>
-              <p>• Khi hai âm <strong>thanh 3</strong> đứng cạnh nhau, âm đầu sẽ đọc thành <strong>thanh 2</strong></p>
-              <p>• Việc nắm vững quy tắc biến âm giúp phát âm tự nhiên và chính xác hơr</p>
+              <p>• <strong>Thanh điệu 3</strong> là thanh điệu khó nhất trong tiếng Trung vì có sự biến đổi phức tạp khi kết hợp với các dấu khác</p>
+              <p>• Việc nắm vững quy tắc biến âm giúp phát âm tự nhiên và chính xác hơn</p>
               <p>• Thực hành thường xuyên với các từ ghép để làm quen với biến âm</p>
             </div>
           </div>

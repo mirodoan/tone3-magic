@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import LogoCircle from "../components/LogoCircle";
 import StickySidebar from "../components/StickySidebar";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 // Các tab và icon
 const SIDEBAR_TABS = [
@@ -81,9 +82,10 @@ export default function LayoutWithSidebar({ children }) {
         {/* Logo và tên */}
         <div className="flex flex-col items-center py-7 gap-2 w-full">
           <LogoCircle text="三" />
-          <span className="font-bold text-[#D7263D] text-2xl tracking-wide mt-2">
+          <span className="font-bold text-[#D7263D] text-4xl tracking-wide mt-2">
             Tone 3 Magic
           </span>
+          <LanguageSwitcher />
         </div>
         {/* Menu tab */}
         <nav className="flex flex-col gap-3 mt-8 w-full px-4">
@@ -123,7 +125,10 @@ export default function LayoutWithSidebar({ children }) {
 
       {/* Sidebar cho mobile */}
       <div className="sm:hidden fixed bottom-0 left-0 right-0 z-50 px-2 pb-2">
-        <div className="bg-white rounded-t-2xl shadow-xl border border-red-100">
+        <div className="bg-white rounded-t-2xl shadow-xl border border-red-100 flex flex-col items-center pt-2">
+          <div className="flex sm:hidden mb-1">
+            <LanguageSwitcher />
+          </div>
           <StickySidebar activeTab={activeTab} onTabChange={handleTabChange} />
         </div>
       </div>

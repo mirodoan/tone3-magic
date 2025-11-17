@@ -8,7 +8,7 @@ const TheoryCards = [
     views: "1.103",
     detail: {
       heading: "Bốn loại thanh điệu trong tiếng Trung",
-      summary: "Tiếng Trung có bốn thanh điệu cơ bản: thanh 1 (ngang), thanh 2 (lên), thanh 3 (xuống lên), và thanh 4 (xuống). Mỗi thanh điệu có đặc điểm riêng và ảnh hưởng đến nghĩa của từ.",
+      summary: "Tiếng Trung có bốn thanh điệu cơ bản: thanh 1, thanh 2, thanh 3, và thanh 4. Mỗi thanh điệu có đặc điểm riêng và ảnh hưởng đến nghĩa của từ.",
       examples: [
         {
           label: "Ví dụ minh họa: 妈 (mā) - Thanh 1",

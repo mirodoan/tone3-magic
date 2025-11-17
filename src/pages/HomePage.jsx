@@ -4,6 +4,7 @@ import InputNickname from "../components/InputNickname";
 import PrimaryButton from "../components/PrimaryButton";
 import ConfirmNicknamePopup from "../components/ConfirmNicknamePopup";
 import { useNavigate } from "react-router-dom";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 export default function HomePage() {
   const [nickname, setNickname] = useState(""); // Current user's nickname
@@ -58,6 +59,7 @@ export default function HomePage() {
         {!showPopup && (
           <>
             <LogoCircle text="三" />
+            <LanguageSwitcher />
             <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mt-8 mb-2 font-poppi drop-shadow-lg text-center">
               Tone 3 Magic
             </h1>
