@@ -11,32 +11,36 @@ const TheoryCards = [
       summary: "Tiếng Trung có bốn thanh điệu cơ bản: thanh 1, thanh 2, thanh 3, và thanh 4. Mỗi thanh điệu có đặc điểm riêng và ảnh hưởng đến nghĩa của từ.",
       examples: [
         {
-          label: "Ví dụ minh họa: 妈 (mā) - Thanh 1",
-          origin: "妈 (mā1)",
-          changed: "妈 (mā)",
-          meaning: "Nghĩa: Mẹ",
-          audioUrl: "/audio-all-tones.mp3",
+          title: "Thanh 1",
+          description: "Âm thanh cao và đều, giữ nguyên độ cao (5) từ đầu đến cuối một cách ổn định.",
+          example: "mā (妈) - mẹ",
+          audioUrl: "/audio/theory/ma1.mp3",
+          image: "/images/tone1.png",
+          color: "border-blue-400 ring-blue-200",
         },
         {
-          label: "Ví dụ minh họa: 麻 (má) - Thanh 2", 
-          origin: "麻 (má2)",
-          changed: "麻 (má)",
-          meaning: "Nghĩa: Ma",
-          audioUrl: "/audio-ma-tone2.mp3",
+          title: "Thanh 2",
+          description: "Âm thanh đi từ trung bình (3) lên cao (5).",
+          example: "má (麻) - sợi đay, vừng",
+          audioUrl: "/audio/theory/ma2.mp3",
+          image: "/images/tone2.png",
+          color: "border-green-400 ring-green-200",
         },
         {
-          label: "Ví dụ minh họa: 马 (mǎ) - Thanh 3",
-          origin: "马 (mǎ3)",
-          changed: "马 (mǎ)",
-          meaning: "Nghĩa: Ngựa",
-          audioUrl: "/audio-ma-tone3.mp3",
+          title: "Thanh 3",
+          description: "Âm thanh đi xuống rồi lên lại, bắt đầu từ cao độ (2) xuống thấp (1) rồi lên cao (4).",
+          example: "mǎ (马) - con ngựa",
+          audioUrl: "/audio/theory/ma3.mp3",
+          image: "/images/tone3.png",
+          color: "border-red-400 ring-red-200",
         },
         {
-          label: "Ví dụ minh họa: 骂 (mà) - Thanh 4",
-          origin: "骂 (mà4)",
-          changed: "骂 (mà)",
-          meaning: "Nghĩa: Mắng",
-          audioUrl: "/audio-ma-tone4.mp3",
+          title: "Thanh 4",
+          description: "Âm thanh đi từ cao (5) xuống thấp (1), mạnh mẽ và dứt khoát, ngắt hơi.",
+          example: "mà (骂) - la mắng",
+          audioUrl: "/audio/theory/ma4.mp3",
+          image: "/images/tone4.png",
+          color: "border-purple-400 ring-purple-200",
         },
       ],
     }
@@ -44,9 +48,9 @@ const TheoryCards = [
   {
     id: 2,
     slug: "two-tone3",
-    title: "Quy tắc biến âm khi 2 dấu 3 đứng cạnh nhau",
+    title: "Quy tắc biến âm khi hai dấu 3 đứng cạnh nhau",
     image: "https://files.fullstack.edu.vn/f8-prod/courses/2.png",
-    description: "Quy tắc biến âm khi 2 dấu 3 đứng cạnh nhau",
+    description: "Quy tắc biến âm khi hai dấu 3 đứng cạnh nhau",
     views: "1.13",
     detail: {
       heading: "Quy tắc biến âm khi hai dấu 3 đứng cạnh nhau",
@@ -57,7 +61,7 @@ const TheoryCards = [
           origin: "你好 - nǐ hǎo",
           changed: "你好 - ní(1-4) hǎo(3)",
           meaning: "Xin chào",
-          audioUrl: "/audio-nihao.mp3",
+          audioUrl: "/audio/theory/nihao.mp3",
         }
       ],
     }
@@ -65,9 +69,9 @@ const TheoryCards = [
   {
     id: 3,
     slug: "three-tone3",
-    title: "Quy tắc biến âm khi 3 dấu 3 đứng cạnh nhau",
+    title: "Quy tắc biến âm khi ba dấu 3 đứng cạnh nhau",
     image: "https://files.fullstack.edu.vn/f8-prod/courses/12.png",
-    description: "Quy tắc biến âm khi 3 dấu 3 đứng cạnh nhau",
+    description: "Quy tắc biến âm khi ba dấu 3 đứng cạnh nhau",
     views: "2670",
     detail: {
       heading: "Quy tắc biến âm khi ba dấu 3 đứng cạnh nhau",
@@ -93,9 +97,9 @@ const TheoryCards = [
   {
     id: 4,
     slug: "four-tone3",
-    title: "Quy tắc biến âm khi 4 dấu 3 đứng cạnh nhau",
+    title: "Quy tắc biến âm khi bốn dấu 3 đứng cạnh nhau",
     image: "https://files.fullstack.edu.vn/f8-prod/courses/7.png",
-    description: "Quy tắc biến âm khi 4 dấu 3 đứng cạnh nhau",
+    description: "Quy tắc biến âm khi bốn dấu 3 đứng cạnh nhau",
     views: "130",
     detail: {
       heading: "Quy tắc biến âm khi bốn dấu 3 đứng cạnh nhau",
@@ -123,10 +127,10 @@ const TheoryCards = [
     slug: "tone3-with-others",
     title: "Quy tắc biến âm khi dấu 3 kết hợp với các dấu khác",
     image: "https://files.fullstack.edu.vn/f8-prod/courses/7.png",
-    description: "Quy tắc biến âm khi dấu 3 kết hợp với các dấu khác",
+    description: "Quy tắc biến âm khi dấu 3 kết hợp với dấu khác",
     views: "282",
     detail: {
-      heading: "Quy tắc biến âm khi dấu 3 kết hợp với các dấu khác",
+      heading: "Quy tắc biến âm khi dấu 3 kết hợp với dấu khác",
       summary: "Khi thanh 3 đứng trước các thanh khác (thanh 1, 2, 4), thanh 3 sẽ giữ nguyên hoặc có sự biến đổi nhẹ tùy thuộc vào ngữ cảnh và tốc độ nói.",
       examples: [
         {
@@ -134,7 +138,7 @@ const TheoryCards = [
           origin: "老师 (lǎo3 shī1)",
           changed: "老师 (lǎo shī)",
           meaning: "Nghĩa: Giáo viên",
-          audioUrl: "/audio-laoshi.mp3",
+          audioUrl: "/audio/theory/laoshi.mp3",
         },
         {
           label: "Ví dụ minh họa: 老婆 (lǎo pó) - Thanh 3 + Thanh 2",

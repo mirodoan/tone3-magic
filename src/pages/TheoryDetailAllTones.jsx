@@ -1,5 +1,60 @@
 import BackButton from "../components/BackButton";
 import TheoryCards from "../data/TheoryCards";
+import { useState, useRef, useEffect } from "react";
+
+function ExampleAudio({ audioUrl, example }) {
+  const [playing, setPlaying] = useState(false);
+  const audioRef = useRef(new Audio(audioUrl));
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    // Reset state when audio ends
+    const handleEnded = () => setPlaying(false);
+    audio.addEventListener('ended', handleEnded);
+
+    // Cleanup on unmount
+    return () => {
+      audio.removeEventListener('ended', handleEnded);
+      audio.pause();
+    };
+  }, [audioUrl]);
+
+  const togglePlayPause = () => {
+    const audio = audioRef.current;
+    if (playing) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+    setPlaying(!playing);
+  };
+
+  return (
+    <div className="bg-gray-50 rounded-lg p-3 sm:p-4 text-center flex items-center justify-center gap-2">
+      <p className="text-gray-800 font-medium text-base sm:text-lg m-0">
+        Ví dụ: <span className="font-bold text-red-600">{example}</span>
+      </p>
+      <button
+        className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-200 transition-colors"
+        title={playing ? "Tạm dừng" : "Phát âm thanh"}
+        onClick={togglePlayPause}
+      >
+        {playing ? (
+          // Pause Icon
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-gray-600">
+            <rect x="6" y="5" width="4" height="14" rx="1"></rect>
+            <rect x="14" y="5" width="4" height="14" rx="1"></rect>
+          </svg>
+        ) : (
+          // Play Icon
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-green-600">
+            <path d="M8 5v14l11-7z"></path>
+          </svg>
+        )}
+      </button>
+    </div>
+  );
+}
 
 export default function TheoryDetailAllTones() {
   // Lấy dữ liệu từ TheoryCards.js
@@ -9,37 +64,6 @@ export default function TheoryDetailAllTones() {
   if (!detail) {
     return <div>Không tìm thấy nội dung</div>;
   }
-
-  const toneImages = [
-    {
-      src: "/images/tone1.png",
-      title: "Thanh 1",
-      description: "Âm thanh cao và đều, giữ nguyên độ cao (5) từ đầu đến cuối  một cách ổn định.",
-      example: "mā (妈) - mẹ",
-      color: "border-blue-400 ring-blue-200"
-    },
-    {
-      src: "/images/tone2.png", 
-      title: "Thanh 2",
-      description: "Âm thanh đi từ trung bình (3) lên cao (5).",
-      example: "má (麻) - vừng",
-      color: "border-green-400 ring-green-200"
-    },
-    {
-      src: "/images/tone3.png",
-      title: "Thanh 3", 
-      description: "Âm thanh đi xuống rồi lên lại, bắt đầu từ cao độ (2) xuống thấp (1) rồi lên cao (4).",
-      example: "mǎ (马) - ngựa",
-      color: "border-red-400 ring-red-200"
-    },
-    {
-      src: "/images/tone4.png",
-      title: "Thanh 4",
-      description: "Âm thanh đi từ cao (5) xuống thấp (1), mạnh mẽ và dứt khoát, ngắt hơi",
-      example: "mà (骂) - mắng",
-      color: "border-purple-400 ring-purple-200"
-    }
-  ];
 
   return (
     <div 
@@ -56,7 +80,7 @@ export default function TheoryDetailAllTones() {
           
           {/* Grid layout for tone images */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {toneImages.map((tone, index) => (
+            {detail.examples.map((tone, index) => (
               <div 
                 key={index}
                 className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white"
@@ -70,7 +94,7 @@ export default function TheoryDetailAllTones() {
                 <div className="flex justify-center mb-4 sm:mb-6">
                   <div className="w-full max-w-sm">
                     <img 
-                      src={tone.src}
+                      src={tone.image}
                       alt={tone.title}
                       className={`w-full h-auto rounded-lg shadow-xl border-4 ${tone.color} ring-4 ring-offset-4 ring-offset-white transition-transform duration-300 hover:scale-105`}
                       onError={(e) => {
@@ -86,11 +110,9 @@ export default function TheoryDetailAllTones() {
                 </p>
 
                 {/* Example */}
-                <div className="bg-gray-50 rounded-lg p-3 sm:p-4 text-center">
-                  <p className="text-gray-800 font-medium text-base sm:text-lg">
-                    Ví dụ: <span className="font-bold text-red-600">{tone.example}</span>
-                  </p>
-                </div>
+                {tone.audioUrl && (
+                  <ExampleAudio audioUrl={tone.audioUrl} example={tone.example} />
+                )}
               </div>
             ))}
           </div>
